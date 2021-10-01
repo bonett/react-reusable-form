@@ -5,10 +5,20 @@ const TextArea = (props) => {
   const { label, name, ...rest } = props;
 
   return (
-    <div>
-      <label htmlFor={name}>{label}</label>
-      <Field as="textarea" id={name} name={name} {...rest} />
-      <ErrorMessage name={name} />
+    <div className="form-group">
+      <label htmlFor={name} className="text-muted">
+        {label}
+      </label>
+      <Field
+        as="textarea"
+        className="form-control"
+        id={name}
+        name={name}
+        {...rest}
+      />
+      <ErrorMessage name={name}>
+        {(name) => <div className="text-danger">{name}</div>}
+      </ErrorMessage>
     </div>
   );
 };

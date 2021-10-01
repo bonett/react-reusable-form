@@ -5,9 +5,9 @@ const RadioButtons = (props) => {
   const { label, name, options, ...rest } = props;
 
   return (
-    <div>
-      <label>{label}</label>
-      <Field name={name}>
+    <div className="form-check">
+      <label className="text-muted">{label}</label>
+      <Field name={name} className="form-check-label">
         {(formik) => {
           const { field } = formik;
           return options.map((option) => {
@@ -18,6 +18,7 @@ const RadioButtons = (props) => {
                   id={option.value}
                   {...field}
                   {...rest}
+                  className="form-check-input"
                   value={option.value}
                   checked={field.value === option.value}
                 />
@@ -27,7 +28,9 @@ const RadioButtons = (props) => {
           });
         }}
       </Field>
-      <ErrorMessage name={name} />
+      <ErrorMessage name={name}>
+        {(name) => <div className="text-danger">{name}</div>}
+      </ErrorMessage>
     </div>
   );
 };
