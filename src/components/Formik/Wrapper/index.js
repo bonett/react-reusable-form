@@ -5,8 +5,8 @@ import FormikController from "../Controller";
 
 const FormikWrapper = () => {
   const choices = [
-    { key: "choice a", value: "choicea" },
-    { key: "choice b", value: "choiceb" },
+    { key: "Choice a", value: "choicea" },
+    { key: "Choice b", value: "choiceb" },
   ];
 
   const initialValues = {
@@ -28,46 +28,59 @@ const FormikWrapper = () => {
   const onSubmit = (values) => console.log("Form data", values);
 
   return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={validationSchema}
-      onSubmit={onSubmit}
-    >
-      {(formik) => (
-        <Form>
-          <FormikController
-            control="input"
-            type="email"
-            label="Email"
-            name="email"
-          />
-          <FormikController
-            control="textarea"
-            label="Description"
-            name="description"
-          />
-          <FormikController
-            control="select"
-            label="Select your choice"
-            name="selectChoice"
-            options={choices}
-          />
-          <FormikController
-            control="radio"
-            label="Click your choice"
-            name="radioChoice"
-            options={choices}
-          />
-          <FormikController
-            control="checkbox"
-            label="select your choices"
-            name="checkBoxChoice"
-            options={choices}
-          />
-          <button type="submit">Submit</button>
-        </Form>
-      )}
-    </Formik>
+    <div className="container">
+      <div className="row">
+        <div className="col card border-1">
+          <div className="card-header">
+            <h1>Reusable Formik & Yup</h1>
+          </div>
+          <div className="card-body">
+            <Formik
+              initialValues={initialValues}
+              validationSchema={validationSchema}
+              onSubmit={onSubmit}
+            >
+              {(formik) => (
+                <Form>
+                  <FormikController
+                    control="input"
+                    type="email"
+                    label="Email"
+                    name="email"
+                  />
+                  <FormikController
+                    control="select"
+                    label="Select your choice"
+                    name="selectChoice"
+                    options={choices}
+                  />
+                  <FormikController
+                    control="radio"
+                    label="Click your choice"
+                    name="radioChoice"
+                    options={choices}
+                  />
+                  <FormikController
+                    control="checkbox"
+                    label="select your choices"
+                    name="checkBoxChoice"
+                    options={choices}
+                  />
+                  <FormikController
+                    control="textArea"
+                    label="Description"
+                    name="description"
+                  />
+                  <button type="submit" className="btn btn-primary">
+                    Submit
+                  </button>
+                </Form>
+              )}
+            </Formik>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 

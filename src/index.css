@@ -1,0 +1,29 @@
+.form-group > label,
+.form-check > label {
+  font-weight: 300;
+  text-transform: capitalize;
+  margin: 10px 0;
+}
+
+.form-check > label,
+.form-check div.text-danger {
+  margin-left: -20px;
+  font-weight: 300;
+}
+
+.form-group .text-danger {
+  font-weight: 300;
+}
+
+.card {
+  margin-top: 40px;
+}
+
+.card-header {
+  background-color: #fff;
+}
+
+.btn {
+  height: 48px;
+  width: 100%;
+}

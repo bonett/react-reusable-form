@@ -5,10 +5,15 @@ const Input = (props) => {
   const { name, label, ...rest } = props;
 
   return (
-    <div>
-      <label htmlFor={name}> {label}</label>
-      <Field name={name} {...rest} />
-      <ErrorMessage name={name} />
+    <div className="form-group">
+      <label htmlFor={name} className="text-muted">
+        {" "}
+        {label}
+      </label>
+      <Field name={name} className="form-control" {...rest} />
+      <ErrorMessage name={name}>
+        {(name) => <div className="text-danger">{name}</div>}
+      </ErrorMessage>
     </div>
   );
 };

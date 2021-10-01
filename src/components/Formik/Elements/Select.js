@@ -5,9 +5,17 @@ const Select = (props) => {
   const { label, name, options, ...rest } = props;
 
   return (
-    <div>
-      <label htmlFor={name}>{label}</label>
-      <Field as="select" id={name} name={name} {...rest}>
+    <div className="form-group">
+      <label htmlFor={name} className="text-muted">
+        {label}
+      </label>
+      <Field
+        as="select"
+        className="form-control"
+        id={name}
+        name={name}
+        {...rest}
+      >
         {options.map((option) => {
           return (
             <option key={option.value} value={option.value}>
@@ -16,7 +24,9 @@ const Select = (props) => {
           );
         })}
       </Field>
-      <ErrorMessage name={name} />
+      <ErrorMessage name={name}>
+        {(name) => <div className="text-danger">{name}</div>}
+      </ErrorMessage>
     </div>
   );
 };
